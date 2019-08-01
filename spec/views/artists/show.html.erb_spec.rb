@@ -5,6 +5,14 @@ describe "artists/show.html.erb", type: :view do
   let(:html) { File.read("#{abs_path}/artists/show.html.erb") }
 
   before(:each) do
+    @extra_artist = Artist.create(name: "Daft Punk")
+    # adding extra instance to prevent .all.first solutions
+    rand(5).times do
+      Artist.create(name: "test_artist")
+      Genre.create(name: "test_genre")
+      Song.create(name: "test_song", artist: Artist.all.last, genre: Genre.all.last)
+    end
+    @extra_genre = Genre.create(name: "electronic")
     @artist = Artist.create(name: "Taylor Swift")
     @genres = [
       Genre.create(name: "country"),
@@ -14,6 +22,7 @@ describe "artists/show.html.erb", type: :view do
       Song.create(name: "Our Song", genre: @genres[0], artist: @artist),
       Song.create(name: "Blank Space", genre: @genres[1], artist: @artist)
     ]
+    @extra_song = Song.create(name: "Aerodynamic", genre: @extra_genre, artist: @extra_artist)
   end
 
   after(:each) do

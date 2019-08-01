@@ -24,18 +24,28 @@ describe 'Artist' do
     song.save
 
     expect(@prince.songs).to include(song)
+    song_2 = @madonna.songs.build(name: "Into the Groove")
+    song_2.save
+
+    expect(@madonna.songs).to include(song_2)
   end
 
   it 'can create a song' do
     song = @prince.songs.create(name: "A Different Song By Prince")
 
     expect(@prince.songs).to include(song)
+    song_2 = @madonna.songs.create(name: "IIInto the Groove")
+
+    expect(@madonna.songs).to include(song_2)
   end
 
   it 'knows about songs that are affiliated with it' do
     song = Song.create(name: "Bestest Song in the Worldz", artist: @prince)
 
     expect(@prince.songs).to include(song)
+    song_2 = Song.create(name: "Bestest Song in the Worldz", artist: @madonna)
+
+    expect(@madonna.songs).to include(song_2)
   end
 
   it 'can add many songs at the same time' do

@@ -7,7 +7,8 @@ describe "artists/index.html.erb", type: :view do
   before(:each) do
     @artists = [
       Artist.create(name: "Taylor Swift"),
-      Artist.create(name: "Kanye West")
+      Artist.create(name: "K.D. Lang"),
+      Artist.create(name: "Lil Nas X")
     ]
   end
 
@@ -18,7 +19,8 @@ describe "artists/index.html.erb", type: :view do
   it "displays links to all artists" do
     rendered = ERB.new(html).result(binding)
 
-    expect(rendered).to match(/Kanye West/)
+    expect(rendered).to match(/K.D. Lang/)
+    expect(rendered).to match(/Lil Nas X/)
     expect(rendered).to match(/Taylor Swift/)
   end
 end
