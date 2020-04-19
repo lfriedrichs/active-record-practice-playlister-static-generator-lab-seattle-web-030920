@@ -32,7 +32,7 @@ ActiveRecord macros, special methods created by ActiveRecord's DSL.
 
 The model tests will be calling methods that your models will, by default, have
 if your associations are correctly defined. You do not need to write those
-methods. Once your associations are defined you you can run `rake db:seed` to
+methods. Once your associations are defined you can run `rake db:seed` to
 seed your database with sample data.
 
 #### Creating Your Associations
@@ -66,7 +66,7 @@ app/views
     └── show.html.erb
 ```
 
-You processed files will be in the following structure:
+Your processed files will be in the following structure:
 
 ```text
 _site
@@ -81,14 +81,14 @@ _site
 
 #### Index Pages
 
-Each model will generally have an index page.  Often they list all instances of a model
+Each model will generally have an index page. Often they list all instances of a model.
 
 - You will need to generate an index page for the top level of `app/views/`
   - The index should have a link to each model and a count of total instances
     - ex. `Artists -  42`
 - Your index pages should be called `index.html.erb`
-- Each model will have an index page in their appropriate folder in `app/views` directory
-  - This index lists every instance and links to that instances show page
+- Each model will have an index page in its appropriate folder in `app/views` directory
+  - This index lists every instance and links to that instance's show page
 
 #### Show Pages
 
@@ -111,9 +111,9 @@ You will need a class whose sole purpose is generating the static pages.
 
 This lab provides you with several Rake tasks to help you along the way.
 
-- `rake db:migrate` will automatically create database and run your migrations all you need to do is write the migrations
-- `rake db:seed` will automatically parse the songs and seed your database, no work required beyond migrations
-- `rake console` will load a pry session with all of your environment loaded to play with the database
+- `rake db:migrate` will automatically create the database and run your migrations; all you need to do is write the migrations
+- `rake db:seed` will automatically parse the songs and seed your database; no work is required beyond migrations
+- `rake console` will load a pry session with your environment loaded to play with the database
 - `rake generate` will run your site generator once it is made assuming it has the `generate` method
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/playlister-static-generator-with-ar' title='Static Playlister on ActiveRecord'>Static Playlister on ActiveRecord</a> on Learn.co and start learning to code for free.</p>
