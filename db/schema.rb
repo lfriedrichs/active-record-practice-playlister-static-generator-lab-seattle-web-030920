@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "name"
   end
 
+  create_table "site_generators", force: :cascade do |t|
+    t.string "url"
+  end
+
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.integer "artist_id"
